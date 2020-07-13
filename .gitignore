@@ -1,2 +1,3 @@
 node_modules/
-.exercism
+.exercism/
+.DS_Store*
