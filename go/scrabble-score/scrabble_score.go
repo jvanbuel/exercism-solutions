@@ -8,14 +8,14 @@ func Score(s string) int {
 	var score int
 
 	for _, c := range strings.ToUpper(s) {
-		score += scoreChar(string(c))
+		score += scoreChar(c)
 	}
 	return score
 }
 
-func scoreChar(c string) int {
+func scoreChar(c rune) int {
 
-	switch c {
+	switch string(c) {
 	case "A", "E", "I", "O", "U", "L", "N", "R", "S", "T":
 		return 1
 	case "D", "G":
