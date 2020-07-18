@@ -15,20 +15,20 @@ func Score(s string) int {
 
 func scoreChar(c rune) int {
 
-	switch string(c) {
-	case "A", "E", "I", "O", "U", "L", "N", "R", "S", "T":
+	switch c {
+	case 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T':
 		return 1
-	case "D", "G":
+	case 'D', 'G':
 		return 2
-	case "B", "C", "M", "P":
+	case 'B', 'C', 'M', 'P':
 		return 3
-	case "F", "H", "V", "W", "Y":
+	case 'F', 'H', 'V', 'W', 'Y':
 		return 4
-	case "K":
+	case 'K':
 		return 5
-	case "J", "X":
+	case 'J', 'X':
 		return 8
-	case "Q", "Z":
+	case 'Q', 'Z':
 		return 10
 	}
 	return 0
