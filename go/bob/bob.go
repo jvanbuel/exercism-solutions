@@ -5,10 +5,7 @@ import "strings"
 
 // Hey should have a comment documenting it.
 func Hey(remark string) string {
-	r := strings.Replace(remark, " ", "", -1)
-	r = strings.Replace(r, "\t", "", -1)
-	r = strings.Replace(r, "\n", "", -1)
-	r = strings.Replace(r, "\r", "", -1)
+	r := strings.TrimSpace(remark)
 	switch r {
 	case "":
 		return "Fine. Be that way!"
