@@ -2,14 +2,19 @@
 package acronym
 
 import (
+	"log"
+	"regexp"
 	"strings"
 )
 
 // Abbreviate abbreviates a string s to its acronym
 func Abbreviate(s string) string {
+	reg, err := regexp.Compile("[^a-zA-Z0-9']+")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	s = strings.ReplaceAll(s, "-", " ")
-	s = strings.ReplaceAll(s, "_", " ")
+	s = reg.ReplaceAllString(s, " ")
 
 	words := strings.Split(s, " ")
 	var abbrev string
