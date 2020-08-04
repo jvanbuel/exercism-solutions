@@ -16,10 +16,7 @@ func Detect(s string, os []string) []string {
 
 	for _, O := range os {
 		o := strings.ToLower(O)
-		if o == s {
-			continue
-		}
-		if len(s) != len(o) {
+		if o == s || len(s) != len(o) {
 			continue
 		}
 		if reflect.DeepEqual(ToMap(s), ToMap(o)) {
