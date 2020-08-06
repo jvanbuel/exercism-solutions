@@ -16,6 +16,12 @@ var testCases = []struct {
 		0,
 		false,
 	},
+	{ // utf-8 strands
+		"@ef€eb",
+		"@kfke€",
+		3,
+		false,
+	},
 	{ // single letter identical strands
 		"A",
 		"A",
