@@ -1,1 +1,1 @@
-["sbt.Task[scala.collection.Seq[java.nio.file.Path]]",["/Users/jvanbuel/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8.jar"]]
+["sbt.Task[scala.collection.Seq[java.nio.file.Path]]",["/Users/jvanbuel/.sbt/boot/scala-2.12.10/lib/scala-library.jar"]]
