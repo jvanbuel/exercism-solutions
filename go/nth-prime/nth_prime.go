@@ -1,5 +1,7 @@
 package prime
 
+import "math"
+
 // Nth returns the nth prime
 func Nth(n int) (int, bool) {
 	if n == 0 {
@@ -25,7 +27,7 @@ func IsPrime(i int) bool {
 	if i == 2 {
 		return true
 	}
-	for j := 2; j < i; j++ {
+	for j := 2; j <= int(math.Sqrt(float64(i))); j++ {
 		if i%j == 0 {
 			return false
 		}
