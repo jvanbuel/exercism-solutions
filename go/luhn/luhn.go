@@ -1,8 +1,6 @@
 package luhn
 
 import (
-	"log"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -11,7 +9,7 @@ import (
 func Valid(s string) bool {
 	s = strings.Replace(s, " ", "", -1)
 
-	if len(s) <= 1 || regexp.MustCompile("[^0-9]").MatchString(s) {
+	if len(s) <= 1 {
 		return false
 	}
 
@@ -19,14 +17,12 @@ func Valid(s string) bool {
 	var multip bool
 	var err error
 
-	if l := len(s); l%2 == 0 {
-		multip = true
-	}
+	multip = len(s)%2 == 0
 
 	for _, c := range s {
 		digit, err = strconv.Atoi(string(c))
 		if err != nil {
-			log.Fatal("could not convert character to digit")
+			return false
 		}
 		if multip {
 			dd := digit * 2
