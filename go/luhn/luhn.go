@@ -13,30 +13,23 @@ func Valid(s string) bool {
 		return false
 	}
 
-	var count, digit int
-	var multip bool
-	var err error
+	var sum int
 
-	multip = len(s)%2 == 0
+	even := len(s)%2 == 0
 
 	for _, c := range s {
-		digit, err = strconv.Atoi(string(c))
+		digit, err := strconv.Atoi(string(c))
 		if err != nil {
 			return false
 		}
-		if multip {
-			dd := digit * 2
-			if dd > 9 {
-				count += dd - 9
-			} else {
-				count += dd
+		if even {
+			digit *= 2
+			if digit > 9 {
+				digit -= 9
 			}
-			multip = false
-		} else {
-			count += digit
-			multip = true
 		}
-
+		even = !even
+		sum += digit
 	}
-	return count%10 == 0
+	return sum%10 == 0
 }
