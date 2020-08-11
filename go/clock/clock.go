@@ -24,20 +24,12 @@ func (c Clock) String() string {
 
 // Add adds minutes to a Clock
 func (c Clock) Add(minutes int) Clock {
-	carry := carry(c.minute + minutes)
-	return Clock{
-		hour:   posRemainder(c.hour+carry, 24),
-		minute: posRemainder(c.minute+minutes, 60),
-	}
+	return New(c.hour, c.minute+minutes)
 }
 
 // Subtract substracts minutes from a Clock
 func (c Clock) Subtract(minutes int) Clock {
-	carry := carry(c.minute - minutes)
-	return Clock{
-		hour:   posRemainder(c.hour+carry, 24),
-		minute: posRemainder(c.minute-minutes, 60),
-	}
+	return New(c.hour, c.minute-minutes)
 }
 
 // Carry calculates the number of hours that need to be carried to the hour field of a clock
