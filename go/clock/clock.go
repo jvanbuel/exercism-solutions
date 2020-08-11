@@ -10,9 +10,8 @@ type Clock struct {
 
 // New returns a new clock
 func New(hour, minute int) Clock {
-	carry := carry(minute)
 	return Clock{
-		hour:   posRemainder(hour+carry, 24),
+		hour:   posRemainder(hour+carry(minute), 24),
 		minute: posRemainder(minute, 60),
 	}
 }
