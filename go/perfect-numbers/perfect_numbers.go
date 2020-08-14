@@ -7,9 +7,9 @@ type Classification int
 
 // Definition of the different classification types
 const (
-	ClassificationAbundant  = 0
-	ClassificationPerfect   = 1
-	ClassificationDeficient = 2
+	ClassificationAbundant = iota
+	ClassificationPerfect
+	ClassificationDeficient
 )
 
 // ErrOnlyPositive is an error
