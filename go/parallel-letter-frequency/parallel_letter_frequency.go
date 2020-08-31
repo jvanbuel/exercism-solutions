@@ -17,23 +17,26 @@ func Frequency(s string) FreqMap {
 // data as a FreqMap.
 func ConcurrentFrequency(l []string) FreqMap {
 	m := FreqMap{}
-	jobs := make(chan string, len(l))
-	results := make(chan FreqMap, len(l))
+	bufferSize := 2
+	jobs := make(chan string, bufferSize)
+	results := make(chan FreqMap, bufferSize)
 	const nWorkers int = 3
 
 	defer close(results)
 	defer close(jobs)
 
 	for i := 0; i < nWorkers; i++ {
-		go func(jobs <-chan string, results chan<- FreqMap) {
+		go func() {
 			for j := range jobs {
 				results <- Frequency(j)
 			}
-		}(jobs, results)
+		}()
 	}
 
 	for _, s := range l {
-		jobs <- s
+		go func(s string) {
+			jobs <- s
+		}(s)
 	}
 
 	for range l {
